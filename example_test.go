@@ -3,7 +3,7 @@ package procspy_test
 import (
 	"fmt"
 
-	"github.com/weaveworks/procspy"
+	"github.com/simonmittag/procspy"
 )
 
 func Example() {
