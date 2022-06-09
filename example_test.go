@@ -1,14 +1,12 @@
-package procspy_test
+package procspy
 
 import (
 	"fmt"
-
-	"github.com/simonmittag/procspy"
 )
 
 func Example() {
 	lookupProcesses := true
-	cs, err := procspy.Connections(lookupProcesses)
+	cs, err := Connections(lookupProcesses)
 	if err != nil {
 		panic(err)
 	}

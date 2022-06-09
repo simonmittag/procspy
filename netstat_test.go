@@ -22,6 +22,7 @@ tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             3107
 			LocalPort:     58287,
 			RemoteAddress: net.ParseIP("1.2.3.4"),
 			RemotePort:    443,
+			Proc:          Proc{PID: 46137},
 		},
 		{
 			Transport:     "tcp",
@@ -29,6 +30,7 @@ tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             3107
 			LocalPort:     58279,
 			RemoteAddress: net.ParseIP("2.3.4.5"),
 			RemotePort:    80,
+			Proc:          Proc{PID: 46137},
 		},
 		{
 			Transport:     "tcp",
@@ -36,6 +38,7 @@ tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             3107
 			LocalPort:     58276,
 			RemoteAddress: net.ParseIP("44.55.66.77"),
 			RemotePort:    443,
+			Proc:          Proc{PID: 46137},
 		},
 		/*
 			{
