@@ -9,10 +9,10 @@ import (
 func TestNetstatDarwin(t *testing.T) {
 	testString := `Active Internet connections
 Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
-tcp4       0      0  10.0.1.6.58287         1.2.3.4.443      		ESTABLISHED
-tcp4       0      0  10.0.1.6.58279         2.3.4.5.80         		ESTABLISHED
-tcp4       0      0  10.0.1.6.58276         44.55.66.77.443    		ESTABLISHED
-tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE
+tcp4       0      0  10.0.1.6.58287         1.2.3.4.443      		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
+tcp4       0      0  10.0.1.6.58279         2.3.4.5.80         		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
+tcp4       0      0  10.0.1.6.58276         44.55.66.77.443    		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
+tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             31072 131600  46137      0 0x0102 0x00000008
 `
 	res := parseDarwinNetstat(testString)
 	expected := []Connection{
