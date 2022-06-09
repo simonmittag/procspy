@@ -77,7 +77,7 @@ func parseDarwinNetstat(out string) []Connection {
 		t.RemotePort = uint16(p)
 
 		var pid int
-		pid, err = strconv.Atoi(fields[10])
+		pid, err = strconv.Atoi(fields[9])
 		if err != nil {
 			return nil
 		}
