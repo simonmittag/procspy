@@ -9,10 +9,10 @@ import (
 func TestNetstatDarwin(t *testing.T) {
 	testString := `Active Internet connections
 Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
-tcp4       0      0  10.0.1.6.58287         1.2.3.4.443      		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
-tcp4       0      0  10.0.1.6.58279         2.3.4.5.80         		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
-tcp4       0      0  10.0.1.6.58276         44.55.66.77.443    		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008
-tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             31072 131600  46137      0 0x0102 0x00000008
+tcp4       0      0  10.0.1.6.58287         1.2.3.4.443      		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008 1 1 1 1 1 1
+tcp4       0      0  10.0.1.6.58279         2.3.4.5.80         		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008 1 1 1 1 1 1
+tcp4       0      0  10.0.1.6.58276         44.55.66.77.443    		ESTABLISHED      31072 131600  46137      0 0x0102 0x00000008 1 1 1 1 1 1
+tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             31072 131600  46137      0 0x0102 0x00000008 1 1 1 1 1 1
 `
 	res := parseDarwinNetstat(testString)
 	expected := []Connection{
@@ -52,7 +52,7 @@ tcp4       0      0  10.0.1.6.1         	4.0.4.0.443    			GONE             3107
 	}
 
 	if len(res) != 3 {
-		t.Errorf("Wanted 3")
+		t.Errorf("Wanted 3, got %v", len(res))
 	}
 	if !reflect.DeepEqual(res, expected) {
 		t.Errorf("OS x netstat 4 error. Got\n%+v\nExpected\n%+v\n", res, expected)

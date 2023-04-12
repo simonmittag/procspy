@@ -33,7 +33,7 @@ func TestConnections(t *testing.T) {
 		}()
 	}
 
-	time.Sleep(time.Second * 8)
+	time.Sleep(time.Second * 2)
 
 	want := concurrency
 	got := spy()
