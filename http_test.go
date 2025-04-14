@@ -1,6 +1,7 @@
 package procspy
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -16,8 +17,8 @@ func TestConnections(t *testing.T) {
 	go func() {
 		for i := 0; i < 25; i++ {
 			time.Sleep(time.Millisecond * 100)
-			//p := fmt.Sprintf("%02d-", spy())
-			//t.Log(p)
+			p := fmt.Sprintf("%02d-", spy())
+			t.Log(p)
 		}
 	}()
 
@@ -50,7 +51,7 @@ func initHTTPClient() http.Client {
 	c := http.Client{
 		Transport: &http.Transport{
 			MaxConnsPerHost: 1,
-			IdleConnTimeout: time.Duration(1 * time.Second),
+			IdleConnTimeout: time.Duration(10 * time.Second),
 		},
 	}
 	return c
@@ -61,7 +62,7 @@ func spy() int {
 	cs, _ := Connections(true)
 	d := 0
 	for c := cs.Next(); c != nil; c = cs.Next() {
-		if c.PID == uint(pid) && c.RemotePort == 80 {
+		if c.PID == uint(pid) && (c.RemotePort == 80 || c.RemotePort == 443) {
 			d++
 		}
 	}
