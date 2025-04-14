@@ -25,7 +25,7 @@ func parseDarwinNetstat(out string) []Connection {
 
 		// Fields are:
 		fields := strings.Fields(line)
-		if len(fields) != 18 {
+		if len(fields) != 20 {
 			continue
 		}
 
